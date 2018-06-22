@@ -57,23 +57,29 @@ function sendResponse(message) {
             reply_to_message_id: this.message.message_id,
             text: message
         }
+    }).catch((e) => {
+        return [];
     });
 };
 
 module.exports = (ctx, cb) => {
-    const context = {
-        botToken: ctx.secrets.BOT_TOKEN,
-        message: ctx.body.message,
-    };
+    if (ctx.body && ctx.body.message) {
+        const context = {
+            botToken: ctx.secrets.BOT_TOKEN,
+            message: ctx.body.message,
+        };
 
-    Promise
-        .resolve(ctx.body.message.text)
-        .bind(context)
-        .then(processCommand)
-        .then(sendResponse)
-        .catch((e) => {
-            cb(e);
-        }).finally(() => {
-            cb(null, {});
-        });
+        Promise
+            .resolve(context.message.text)
+            .bind(context)
+            .then(processCommand)
+            .then(sendResponse)
+            .catch((e) => {
+                cb(e);
+            }).finally(() => {
+                cb(null, {});
+            });
+    } else {
+        cb(null, {});
+    }
 }
