@@ -1,0 +1,29 @@
+{
+  "name": "askpwnedbot",
+  "author": {
+    "name": "Leonardo Zanivan <panga@apache.org>",
+    "url": "https://panga.github.io",
+    "twitter": "leonardopanga"
+  },
+  "version": "0.0.1",
+  "description": "AskPwnedBot",
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
+  },
+  "homepage": "http://github.com/panga/askpwnedbot",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:panga/askpwnedbot.git"
+  },
+  "bugs": {
+    "url": "http://github.com/panga/askpwnedbot/issues"
+  }
+}
